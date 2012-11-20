@@ -1,0 +1,12 @@
+<h1>Progect#new</h1>
+<p>Find me in app/views/progect/new.html.erb</p>
+
+<%= form_for @progect, :url =>{:action=>"create"} do |p| %>
+<p>
+<%= p.label :name %>
+<%= p.text_field :name %>
+</p>
+
+<%= p.submit "Create" %>
+
+<% end %>

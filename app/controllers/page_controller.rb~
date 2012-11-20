@@ -1,0 +1,13 @@
+class PageController < ApplicationController
+  def task
+
+  end
+
+  def list
+	@progects = Progect.all
+  end
+
+	def new
+	@progect = Progect.new
+	end
+end

@@ -1,0 +1,4 @@
+<%= form for(@progect) do |p| %>
+<%= p.name %>
+<%= p.description %>
+<% end %>

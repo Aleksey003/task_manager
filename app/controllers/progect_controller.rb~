@@ -1,0 +1,9 @@
+class ProgectController < ApplicationController
+  def new
+	@progect = Progect.new
+  end
+
+  def create
+	@progect = Progect.new(params[:progect])
+  end
+end
