@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(:version => 20121119192422) do
 
   create_table "statuses", :force => true do |t|
     t.string   "name"
-    t.integer  "task_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

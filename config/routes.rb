@@ -1,7 +1,7 @@
 TaskManager::Application.routes.draw do
 
 	resources :progect
-	root :to => 'page#list'
+	root :to => 'progect#list'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

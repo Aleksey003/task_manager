@@ -7,4 +7,8 @@ class ProgectController < ApplicationController
 	@progect = Progect.new(params[:progect])
   @progect.save
   end
+
+	def list
+  @progect = Progect.all
+	end
 end
