@@ -12,7 +12,7 @@ end
 group :production do
   gem 'pg', '0.12.2'
 end
-
+gem 'delayed_job_active_record'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
