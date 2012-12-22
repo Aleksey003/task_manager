@@ -1,0 +1,16 @@
+<%= form_for [@progect, @task] do |t| %>
+
+<%=t.label :name %></br>
+<%=t.text_field :name %> </br>
+
+<%=t.label :description %></br>
+<%=t.text_area :description, :rows=>5 %></br>
+
+<%=t.label :priority %>
+<%=t.text_field :priority %> <br>
+
+<%=t.label :deadline %>
+<%=t.date_select :deadline %></br>
+<%=t.submit %>
+
+<% end %>

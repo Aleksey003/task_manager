@@ -1,0 +1,5 @@
+<% form_for @progect do |p| %>
+
+<%=p.text_field :name %>
+<%=p.submit %>
+<% end %>

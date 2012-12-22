@@ -10,8 +10,7 @@
 
 <div id = "content">
 <%= yield %>
-<%= debug params %>
 </div>
-
+<%= debug params %>
 </body>
 </html>

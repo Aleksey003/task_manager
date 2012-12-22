@@ -1,14 +1,27 @@
-class ProgectController < ApplicationController
-  def new
+class ProgectsController < ApplicationController
+
+def new
 	@progect = Progect.new
   end
 
   def create
 	@progect = Progect.new(params[:progect])
   @progect.save
+  redirect_to :action =>"index"
   end
 
-	def list
+	def index
   @progect = Progect.all
 	end
+
+	def edit
+	@progect = Progect.find(params[:id])
+	end
+
+  def destroy
+  @progect = Progect.find(params[:id])
+	@progect.destroy
+	redirect_to :action =>"index"
+	end
+
 end

@@ -1,0 +1,49 @@
+
+<%  @progect.each do |p| %>
+
+
+<table>
+
+<tr class="head">
+<td></td>
+
+<td><h1><%= p.name %></h1></td>
+
+<td><%=link_to "i", edit_progect_path(p), :class => "icon_edit" %>
+<%=link_to "d", progect_path(p), :method=>"delete", :confirm => "yes", :class => "icon_delete" %></td>
+</tr>
+
+<tr class="add">
+<td><%= link_to "add tsk", new_progect_task_path(p) %></td>
+
+<td><%= form_tag(:action=>"add",:controller=>"tasks", :progect_id => p.id) do %>
+<%=text_field_tag (:name) %></td>
+
+<td><%=submit_tag("Add") %></td>
+<% end %>
+</tr>
+
+
+
+<% p.tasks.order("priority DESC").each do |t| %>
+<tr>
+
+<td><%=link_to  "show", [p,t] %></td>
+<td><%= t.name %></td>
+
+<td><%= link_to "edit", edit_progect_task_path(p,t) %>
+<%= link_to "delete", progect_task_path(p,t), :method=>"delete", :confirm=>"yes" %>
+<%= link_to "up" , :action => "up_priority", :controller =>"tasks", :id=> t.id %>
+#<%= link_to "down", :action => "down_priority", :controller =>"tasks", :id=> t.id%></td>
+<% end %>
+</tr>
+
+
+</table>
+<% end %>
+
+
+
+<div>
+<%=link_to "New progect", new_progect_path %>
+</div>

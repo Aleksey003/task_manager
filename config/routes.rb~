@@ -1,7 +1,16 @@
 TaskManager::Application.routes.draw do
 
-	resources :progect
-	root :to => 'progect#list'
+
+
+	resources :progects do
+		resources :tasks
+	end
+
+	root :to => 'progects#index'
+
+  get 'tasks/up_priority/:id'   => 'tasks#up_priority'
+	get 'tasks/down_priority/:id' => 'tasks#down_priority'
+  post 'tasks/add/:id'           => 'tasks#add'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

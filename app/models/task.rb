@@ -1,6 +1,9 @@
 class Task < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :name, :description, :priority, :deadline
+	belongs_to :progect
+	belongs_to :status
 
-	belong_to :progect
-	belong_to :status
+	def add_priority(step)
+	 self.priority += step;
+	end
 end
