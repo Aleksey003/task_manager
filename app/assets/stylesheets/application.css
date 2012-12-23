@@ -36,7 +36,7 @@ text-align: center;
 
 a.icon_edit
 {
-background:  url(edit_progect_icon.jpg) no-repeat;
+
 width: 24px;
 height: 24px;
 display:inline-block;
@@ -45,7 +45,7 @@ padding:0;
 }
 a.icon_delete
 {
-background: url(delete_progect_icon.jpg) no-repeat;
+
 width: 24px;
 height: 24px;
 display: inline-block;
@@ -58,6 +58,7 @@ table
 {
 border-spacing: 0;
 margin: 0 auto;
+margin-bottom: 20px;
 
 }
 
@@ -69,4 +70,30 @@ background-color: #496DAB;
 tr.add
 {
 background-color: #b3bdc1;
+}
+
+
+a.new_progect_button
+{
+margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 190px;
+  background:#496DAB;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
+	color: black;
+  text-decoration: none;
+}
+
+a.new_progect_button:hover {
+  background:#77ABFF;
+  text-decoration: underline;
+}
+.round {
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
 }
