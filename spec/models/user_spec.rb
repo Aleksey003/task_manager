@@ -1,8 +1,17 @@
 require 'spec_helper'
-
+require 'digest'
 describe User do
 	before(:each)   do
-	@attr = {:name=> "Aleksey", :email => "petrov@ukr.com"}
+	@attr = {
+	:name=> "Aleksey",
+	:email => "petrov@ukr.com",
+	:password => "123",
+	:password_confirmation => "123"
+
+}
+
+
+
 	end
   it "should create a new instance given valid attributes" do
 	User.create!(@attr)
@@ -33,4 +42,10 @@ describe User do
       invalid_email_user.should_not be_valid
     end
   end
+
+ 	it "should be false if the passwords don't match" do
+   @user = User.create(@attr)
+	 @user.has_password?("invalid").should be_false
+  end
+
 end
