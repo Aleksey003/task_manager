@@ -2,6 +2,8 @@ TaskManager::Application.routes.draw do
 
 
 
+	resources :users
+
 	resources :progects do
 		resources :tasks
 	end
