@@ -1,4 +1,8 @@
-<% form_for @progect do |p| %>
+<% if @progect.errors.any? %>
+		<% @model = @progect %>
+	  <%= render 'shared/error_messages' %>
+		<% end %>
+<%= form_for @progect do |p| %>
 
 <%=p.text_field :name %>
 <%=p.submit %>

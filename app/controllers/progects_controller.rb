@@ -23,8 +23,11 @@ class ProgectsController < ApplicationController
 
 	def	update
 		@progect = Progect.find(params[:id])
-		@progect.update_attributes(params[:progect])
+		if @progect.update_attributes(params[:progect])
 		redirect_to :root
+		else
+		render "edit"
+		end
 	end
 
   def destroy

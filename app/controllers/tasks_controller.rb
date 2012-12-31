@@ -12,8 +12,16 @@ class TasksController < ApplicationController
 
 	def add
 		@progect = Progect.find(params[:progect_id])
-		@task = @progect.tasks.create(:name =>params[:name])
-		redirect_to :root
+      @task  = @progect.tasks.new(:name =>params[:name])
+			if @task.save
+				flash[:Add] =  @task.name
+				redirect_to :root
+    	else
+					@task.errors.full_messages.each do |msg|
+					flash[:error] = msg
+			end
+			redirect_to :root
+		end
 	end
 
   def edit
@@ -52,6 +60,7 @@ class TasksController < ApplicationController
 	def create
 		@progect = Progect.find(params[:progect_id])
 		@task = @progect.tasks.create(params[:task])
+
 		redirect_to :root
 	end
 
