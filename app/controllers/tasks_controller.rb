@@ -15,13 +15,15 @@ class TasksController < ApplicationController
       @task  = @progect.tasks.new(:name =>params[:name])
 			if @task.save
 				flash[:Add] =  @task.name
-				redirect_to :root
     	else
 					@task.errors.full_messages.each do |msg|
-					flash[:error] = msg
+						flash[:error] = msg
+					end
 			end
-			redirect_to :root
-		end
+			respond_to do |format|
+			format.html {redirect_to :root}
+			format.js
+			end
 	end
 
   def edit
@@ -33,7 +35,10 @@ class TasksController < ApplicationController
     @progect = Progect.find(params[:progect_id])
 		@task = @progect.tasks.find(params[:id])
 		@task.delete
-		redirect_to :root
+		respond_to do |format|
+			format.html {redirect_to :root}
+			format.js
+		end
   end
 
   def update
@@ -60,8 +65,11 @@ class TasksController < ApplicationController
 	def create
 		@progect = Progect.find(params[:progect_id])
 		@task = @progect.tasks.create(params[:task])
+		respond_to do |format|
+			format.html {redirect_to :root}
+			format.js
+		end
 
-		redirect_to :root
 	end
 
 

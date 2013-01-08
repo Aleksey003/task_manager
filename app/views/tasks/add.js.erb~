@@ -1,0 +1,3 @@
+alert("add");
+
+$('#<%= dom_id(@progect) %>').append('<%= escape_javascript(render :partial => "tasks/task", :locals => { :p => @progect, :task => @task } ) %>');

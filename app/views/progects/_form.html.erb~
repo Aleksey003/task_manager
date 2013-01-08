@@ -6,4 +6,5 @@
 
 <%=p.text_field :name %>
 <%=p.submit %>
+<%=link_to "Back", progects_path %>
 <% end %>

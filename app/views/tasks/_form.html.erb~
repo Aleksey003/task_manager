@@ -17,5 +17,5 @@
 <%=t.label :deadline %>
 <%=t.date_select :deadline %></br>
 <%=t.submit %>
-<%=link_to :back %>
+<%=link_to "back", progects_path %>
 <% end %>

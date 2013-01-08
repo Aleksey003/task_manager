@@ -14,7 +14,7 @@ class ProgectsController < ApplicationController
   end
 
 	def index
-  	@progect = Progect.all
+  	@progects = Progect.all
 	end
 
 	def edit
@@ -33,7 +33,10 @@ class ProgectsController < ApplicationController
   def destroy
   	@progect = Progect.find(params[:id])
 		@progect.destroy
-		redirect_to :root
+			respond_to do |format|
+				format.html {redirect_to :root}
+				format.js
+				end
 	end
 
 end
