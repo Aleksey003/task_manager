@@ -1,14 +1,14 @@
 <%= content_tag_for(:tr, task,:class => "task_tr") do |t| %>
-<td><%=link_to  [p,t] do %> <i class = "foundicon-folder"></i> <% end %></td>
+<td><%=link_to  [p,t], :class => "icon_link" do %> <i class = "foundicon-folder"></i> <% end %></td>
 <td><%= t.name %></td>
 
 <td>
-<%= link_to  edit_progect_task_path(p,t) do %>
+<%= link_to  edit_progect_task_path(p,t), :class => "icon_link" do %>
 <i class = "foundicon-edit"> </i> <% end %>
-<%= link_to  progect_task_path(p,t), :method=>"delete", :confirm=>"Are you sure", :remote => true do %>
-<i class = "foundicon-remove"></i> <% end %>
+<%= link_to  progect_task_path(p,t), :method=>"delete", :confirm=>"Are you sure", :class => "icon_link", :remote => true do %>
+<i class = "foundicon-remove"> </i> <% end %>
 
-<%= link_to raw('<i class = "foundicon-up-arrow"></i>') , :action => "up_priority", :controller =>"tasks", :id=> t.id %>
-<%= link_to raw('<i class = "foundicon-down-arrow"></i>'), :action => "down_priority", :controller =>"tasks", :id=> t.id%></td>
+<%= link_to raw('<i class = "foundicon-up-arrow"> </i>') , { :action => "up_priority", :controller =>"tasks", :id=> t.id}, :class => "icon_link" %>
+<%= link_to raw('<i class = "foundicon-down-arrow"> </i>'), {:action => "down_priority", :controller =>"tasks", :id=> t.id}, :class => "icon_link" %></td>
 </td>
 <% end %>

@@ -6,8 +6,8 @@
 
 <td><h1><%= p.name %></h1></td>
 
-<td><%=link_to  edit_progect_path(p) do %>  <i class = "foundicon-edit"></i> <% end %>
-<%=link_to  progect_path(p), :confirm => "Your are sure?", :method=> :delete, :remote => true do %>
+<td><%=link_to  edit_progect_path(p), :class => "icon_link" do %>  <i class = "foundicon-edit"></i> <% end %>
+<%=link_to  progect_path(p), :confirm => "Your are sure?", :method=> :delete, :remote => true, :class => "icon_link" do %>
 <i class = "foundicon-remove"></i>
 <% end %>
 
@@ -15,14 +15,14 @@
 <td><%= link_to new_progect_task_path(p) do  %>
 <i class = "foundicon-add-doc"></i> <% end %> </td>
 
-<td><%= form_tag url_for(:action=>"add",:controller=>"tasks", :progect_id => p.id), :remote => true  do %>
+<td><%= form_tag url_for(:action=>"add",:controller=>"tasks", :progect_id => p.id, :class => "add_task"), :remote => true  do %>
 <%=text_field_tag (:name) %></td>
 
 <td><%=submit_tag("Add",:class => "add_button")  %></td>
 <% end %>
 </tr>
 
-<% p.task.order("priority DESC").each do |task| %>
+<% p.tasks.order("priority DESC").each do |task| %>
 
 <%= render :partial => "tasks/task", :locals => { :p => p, :task => task } %>
 <% end %>
