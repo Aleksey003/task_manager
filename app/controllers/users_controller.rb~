@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  def show
+before_filter :authenticate, :only => [:edit, :update]
+def show
 		 @user = User.find(params[:id])
   end
 
@@ -10,6 +11,8 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(params[:user])
 		if @user.save
+      sign_in @user
+      flash[:success] = "Welcome to the Sample App!"
 			redirect_to @user
 		else
 			render "new"

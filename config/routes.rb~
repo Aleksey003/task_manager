@@ -2,7 +2,9 @@ TaskManager::Application.routes.draw do
 
 
 
-	resources :user
+  get "sessions/new"
+
+	resources :users
 
 	resources :progects do
 		resources :tasks
@@ -13,6 +15,10 @@ TaskManager::Application.routes.draw do
   get 'tasks/up_priority/:id'   => 'tasks#up_priority'
 	get 'tasks/down_priority/:id' => 'tasks#down_priority'
   post 'tasks/add/:progect_id'           => 'tasks#add'
+	resources :sessions, :only => [:new, :create, :destroy]
+	match '/signup',  :to => 'users#new'
+  match '/signin',  :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

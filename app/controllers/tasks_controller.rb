@@ -44,8 +44,11 @@ class TasksController < ApplicationController
   def update
 		@progect = Progect.find(params[:progect_id])
 		@task = @progect.tasks.find(params[:id])
-		@task.update_attributes(params[:task])
-		redirect_to :root
+		if @task.update_attributes(params[:task])
+			redirect_to :root
+		else
+			render "edit"
+		end
   end
 
 	def up_priority
@@ -64,12 +67,15 @@ class TasksController < ApplicationController
 
 	def create
 		@progect = Progect.find(params[:progect_id])
-		@task = @progect.tasks.create(params[:task])
-		respond_to do |format|
-			format.html {redirect_to :root}
-			format.js
+		@task = @progect.tasks.new(params[:task])
+		if @task.save
+			respond_to do |format|
+				format.html {redirect_to :root}
+				format.js
+			end
+		else
+			render "new"
 		end
-
 	end
 
 
