@@ -1,3 +1,6 @@
-<p><%= @task.name %></p>
-<p><%= @task.description %></p>
-<p>priority:<%= @task.priority %> deadline: <%= @task.deadline %></p>
+<p>Name:<%= @task.name %></p><br>
+<p>Description:<%= @task.description %></p>
+<p>priority:<%= @task.priority %>
+<p>deadline: <%= @task.deadline %></p>
+<%=link_to "back", progects_path %>
+<%=link_to "edit", edit_progect_task_path(@progect, @task) %>

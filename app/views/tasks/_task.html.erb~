@@ -8,7 +8,7 @@
 <%= link_to  progect_task_path(p,t), :method=>"delete", :confirm=>"Are you sure", :class => "icon_link", :remote => true do %>
 <i class = "foundicon-remove"> </i> <% end %>
 
-<%= link_to raw('<i class = "foundicon-up-arrow"> </i>') , { :action => "up_priority", :controller =>"tasks", :id=> t.id}, :class => "icon_link" %>
-<%= link_to raw('<i class = "foundicon-down-arrow"> </i>'), :action => "down_priority", :controller =>"tasks", :id=> t.id %></td>
+<%= link_to raw('<i class = "foundicon-up-arrow"></i>') , { :action => "up_priority", :controller =>"tasks", :id=> t.id}, :class => "icon_link" %>
+<%= link_to raw('<i class = "foundicon-down-arrow"></i>'), {:action => "down_priority", :controller =>"tasks", :id=> t.id}, :class => "icon_link" %></td>
 </td>
 <% end %>
