@@ -7,8 +7,8 @@ class Task < ActiveRecord::Base
 	belongs_to :progect
 	belongs_to :status
 
-
 	def add_priority(step)
 	 self.priority += step;
 	end
+
 end

@@ -17,7 +17,7 @@ body {
 
 color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 18px;
   padding-top: 60px;
   padding-bottom: 30px;
@@ -65,6 +65,7 @@ text-align: center;
 a
 {
 text-decoration: none;
+padding:2;
 }
 a.icon_edit
 {
@@ -152,7 +153,12 @@ tr.task_tr:hover
  background-image: -o-linear-gradient(top, #d9dddd, #c6c3c3);
  background-image: linear-gradient(top, #d9dddd, #c6c3c3);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#d9dddd, endColorstr=#c6c3c3);
 }
-
+a.icon_link
+{
+padding: 2px 2px 2px 2px;
+font-weight:bold;
+text-align: center;
+}
 a:not([class]) ,  input[type=submit]
 {
 border:1px solid #25729a; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-family:arial, helvetica, sans-serif; padding: 3px 3px 3px 3px; text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; text-align: center; color: #FFFFFF; background-color: #3093c7;
