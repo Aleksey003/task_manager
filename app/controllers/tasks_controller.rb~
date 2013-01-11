@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
- before_filter :authenticate, :only => [:edit, :update]
+ before_filter :authenticate, :only => [:new, :show, :add]
   def new
 		@progect = Progect.find(params[:progect_id])
 		@task = @progect.tasks.build
