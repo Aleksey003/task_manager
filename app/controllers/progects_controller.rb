@@ -1,4 +1,5 @@
 class ProgectsController < ApplicationController
+   before_filter :authenticate, :only => [:edit, :update,  :destroy, :new, :index]
 
   def new
 		@progect = Progect.new
